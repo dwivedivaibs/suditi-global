@@ -1,0 +1,135 @@
+<style>
+  body {
+      font-family: Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      color: #777;
+      font-size: 18px;
+      -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+      -webkit-text-size-adjust: 100%;
+  }
+
+  button,
+  input,
+  textarea {
+      color: inherit; /* 1 */
+      font: inherit; /* 2 */
+      margin: 0; /* 3 */
+  }
+
+  *, :after, :before {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+  }
+
+  /* Form Styles */
+
+  .ajax-form { width: 100%; }
+  .ajax-form input, 
+  .ajax-form textarea {
+      padding: 20px;
+      border: 3px solid #ccc;
+      border-radius: 6px;
+      margin: 0 0 27px;
+      background: #eee;
+      outline: none;
+      -webkit-transition: all .25s ease-in-out;
+      -moz-transition: all .25s ease-in-out;
+      -o-transition: all .25s ease-in-out;
+      transition: all .25s ease-in-out; 
+  }
+
+  .ajax-form input:focus, 
+  .ajax-form textarea:focus {
+      border: 3px solid #2735A7;
+      color: #424651;
+  }
+
+  .ajax-form input[type="submit"] {
+      border: 3px solid #2735A7;
+    color: #2735A7;
+  }
+
+  .ajax-form input[type="submit"]:hover {
+      background-color: #2735A7;
+      border: 3px solid #2735A7;
+      color: white;
+  }
+
+  .field-l, .field-r { width: 48%; }
+
+  .field-l { float: left; }
+  .field-r { float: right }
+
+  .message { width: 100%; }
+
+  .form-btn { text-align: center; }
+
+  .error { border: 3px solid #ED1941 !important; }
+
+  #count {
+    text-align: right;
+    margin-top: -30px;
+  }
+
+  .form_submit {
+    width: 100%;
+  }
+</style>
+
+<div class="container">
+  <br><br>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="ajax-form">
+        <%= form_for :contact, url: contact_us_path do |f| %>
+
+          <%= f.text_field :name, placeholder: "Your name", required: true, class: "field-l" %>
+          <%= f.text_field :email, placeholder: "Your email address", required: true, class: "field-r" %>
+          <%= f.text_field :subject, placeholder: "Subject", required: true, class: "field-l" %>
+          <%= f.text_field :contact, placeholder: "Your contact number", required: true, class: "field-r" %>
+          <%= f.text_area :text, placeholder: "Enter your message", maxlength: 200 , required: true, class: "message" %>
+          <div id="count" class="col-lg-12"></div>
+
+          <%= f.submit "Submit", class: "form_submit" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-4" style="font-size: 14px;">
+        <h2 style="padding-bottom:10px;">How to reach us</h2>
+        <h4>Address</h4>
+        Nagla Lallu, Fulrai, Jaswantnagar, Etawah-206245 (U.P.) 
+        <br>
+        <h4>Email</h4>
+        <a href="mailto:sga.jaswantnagar@gmail.com" target="_blank">sga.jaswantnagar@gmail.com</a><br>
+    
+        <h4>Phone</h4>
+        +91 9410056844 , +91 9761950009<br>
+        +91 8439696970
+        <br>
+      </div>
+      <div class="col-md-8">
+       
+        <iframe width="600" height="310" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/place?q=Dhanuan+,Etawah,+Uttar+Pradesh+206245,+India&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe><br><small><a href="https://maps.google.co.in/maps/ms?msa=0&amp;msid=212507237468248936211.0004d405e71d6145b3e5b&amp;hl=en&amp;ie=UTF8&amp;ll=27.241114,79.018663&amp;spn=0,0&amp;t=h&amp;iwloc=0004d405e720535c2de96&amp;output=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+$(document).ready(function() {
+  $(".message").keyup(function(){
+    var str_length = $(".message").val().length;
+    $('#count').html(str_length + "/200");
+  });
+});
+
+</script>
+
