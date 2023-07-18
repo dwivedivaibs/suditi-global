@@ -1,5 +1,5 @@
 # Change these
-server '3.95.189.59', port: 22, roles: [:web, :app, :db], primary: true
+server '44.203.151.190', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,'git@github.com:dwivedivaibs/suditi-global.git'
 set :application,     'suditi-global'
