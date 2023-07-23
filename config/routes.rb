@@ -34,6 +34,7 @@ Rails.application.routes.draw do
 
 
   get '/manager_message'=> 'welcome#manager_message', as: :manager_message
+  get '/director_message'=> 'welcome#director_message', as: :director_message
   get '/principal_message' => 'welcome#principal_message', as: :principal_message
   get '/academic_calender' => 'welcome#academic_calender', as: :academic_calender
   get '/three_year_results' => 'welcome#three_year_results', as: :three_year_results
